@@ -1,0 +1,14 @@
+# Python virtual environment
+.venv/
+# Environment variables
+.env
+# Python cache
+__pycache__/
+*.pyc
+# Jupyter
+.ipynb_checkpoints/
+# OS files
+.DS_Store
+Thumbs.db
+# Large or sensitive local files
+data/local/

@@ -1,0 +1,11 @@
+customer_id,age,gender,monthly_fee,contract_type,usage_days,support_calls,churn
+C001,34,F,59000,monthly,120,1,0
+C002,45,M,79000,yearly,380,3,1
+C003,,F,,monthly,45,0,0
+C004,52,M,99000,yearly,800,5,1
+C005,41,F,69000,,220,2,0
+C005,41,F,69000,,220,2,0
+C006,37,M,72000,monthly,90,4,0
+C007,58,F,110000,yearly,1000,6,1
+C008,23,,45000,monthly,15,0,0
+C009,63,M,120000,yearly,1100,7,1
