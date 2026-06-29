@@ -4,17 +4,17 @@ student
 ## 2. 실행 이름
 week2_day3_reproducibility
 ## 3. 실행 시각
-2026-06-24T15:41:29.513934
+2026-06-29T10:42:41.556515
 ## 4. 실행 환경
 | 항목 | 값 |
 |---|---|
 | Python | 3.12.3 |
-| OS | Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.39 |
+| OS | Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39 |
 | pandas | 3.0.3 |
 | numpy | 2.5.0 |
 | scikit-learn | 1.9.0 |
 | pyarrow | 24.0.0 |
-| python-dotenv 설치 여부 | False |
+| python-dotenv 설치 여부 | True |
 ## 5. 입력과 출력
 | 항목 | 값 |
 |---|---|
