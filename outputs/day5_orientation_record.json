@@ -1,0 +1,45 @@
+{
+  "day": "week2_day5",
+  "lesson": "period1_orientation_and_pipeline_overview",
+  "author": "kim-juil",
+  "created_at": "2026-07-02T16:03:09.541296",
+  "python_version": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "execution_environment": "local_pc_wsl2",
+  "openshift_local_connection": {
+    "used_in_period1": false,
+    "purpose": "same project structure and environment reproducibility"
+  },
+  "g4dn_connection": {
+    "used_in_day5": false,
+    "reason": "Day 5 uses pandas and scikit-learn baseline preparation; GPU is not required"
+  },
+  "main_goal": "S3 clean data to baseline preparation pipeline",
+  "pipeline_steps": [
+    "S3 clean data download",
+    "local or OpenShift Local path setup",
+    "data validation",
+    "feature generation",
+    "train validation test split",
+    "baseline model preparation",
+    "metrics and report save",
+    "S3 feature log artifact upload",
+    "baseline preparation report"
+  ],
+  "warning": {
+    "goal_is_not_best_model": true,
+    "leakage_check_required": true,
+    "test_data_should_be_reserved": true,
+    "baseline_is_reference_not_final_model": true
+  },
+  "s3_inputs": {
+    "bucket": "edu-ai-lake",
+    "clean_key": "users/kim-juil/clean/customers/customers_clean_20260606_v2.csv",
+    "clean_s3_uri": "s3://edu-ai-lake/users/kim-juil/clean/customers/customers_clean_20260606_v2.csv"
+  },
+  "s3_outputs": {
+    "feature_prefix": "users/kim-juil/feature/customers/",
+    "log_prefix": "users/kim-juil/log/week2/",
+    "artifact_prefix": "users/kim-juil/artifact/week2/"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "day": "week2_day4",
+  "lesson": "s3_bucket_prefix_design",
+  "author": "student",
+  "bucket": "edu-ai-lake",
+  "base_strategy": "single_bucket_with_user_prefix",
+  "created_at": "2026-06-29T12:57:47.400891",
+  "common_prefixes": {
+    "common_raw_customers": "common/raw/customers/",
+    "common_reference_week2": "common/reference/week2/"
+  },
+  "user_prefix": "users/student/",
+  "prefixes": {
+    "raw": "users/student/raw/",
+    "clean": "users/student/clean/",
+    "feature": "users/student/feature/",
+    "notebook": "users/student/notebook/",
+    "artifact": "users/student/artifact/",
+    "log": "users/student/log/",
+    "archive": "users/student/archive/"
+  },
+  "dataset_prefixes": {
+    "customers_raw": "users/student/raw/customers/",
+    "customers_clean": "users/student/clean/customers/",
+    "customers_feature": "users/student/feature/customers/"
+  },
+  "week2_prefixes": {
+    "notebook_week2": "users/student/notebook/week2/",
+    "artifact_week2": "users/student/artifact/week2/",
+    "log_week2": "users/student/log/week2/"
+  },
+  "upload_plan_period3": {
+    "raw_source": "data/raw/customers_raw.csv",
+    "raw_s3_prefix": "users/student/raw/customers/",
+    "clean_source": "data/clean/customers_clean_20260606_v2.csv",
+    "clean_s3_prefix": "users/student/clean/customers/",
+    "run_info_source": "outputs/run_info.json",
+    "run_info_s3_prefix": "users/student/log/week2/"
+  },
+  "environment_connection": {
+    "local_pc_wsl2": true,
+    "openshift_local_same_prefix": true,
+    "developer_sandbox_same_prefix": true,
+    "g4dn_used_in_day4": false,
+    "g4dn_future_output_prefix": "users/student/artifact/week7/"
+  },
+  "principles": {
+    "raw": "raw data is original and should not be overwritten or casually deleted",
+    "clean": "clean data is processed data and must include processing record",
+    "feature": "feature data is model input candidate and must include split/leakage record",
+    "log": "run_info and upload records are stored here",
+    "artifact": "reports, model files, and submitted outputs are stored here"
+  }
+}

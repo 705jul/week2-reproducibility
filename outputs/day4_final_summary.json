@@ -1,0 +1,189 @@
+{
+  "day": "week2_day4",
+  "topic": "s3_data_upload_versioning_lifecycle_iam",
+  "author": "student",
+  "bucket": "edu-ai-lake",
+  "region": "ap-northeast-2",
+  "created_at": "2026-06-29T18:14:14.870035",
+  "environment": {
+    "local_pc_wsl2_used": true,
+    "openshift_local_used": false,
+    "developer_sandbox_used": false,
+    "g4dn_used": false,
+    "h200_used": false,
+    "reason_g4dn_not_used": "Day 4는 S3 데이터 운영 실습이므로 GPU가 필요하지 않음"
+  },
+  "s3_prefixes": {
+    "user_prefix": "users/student/",
+    "raw": "users/student/raw/customers/",
+    "clean": "users/student/clean/customers/",
+    "feature": "users/student/feature/customers/",
+    "notebook": "users/student/notebook/week2/",
+    "artifact": "users/student/artifact/week2/",
+    "log": "users/student/log/week2/",
+    "archive": "users/student/archive/",
+    "tmp": "users/student/tmp/"
+  },
+  "uploaded_s3_objects": {
+    "raw": "s3://edu-ai-lake/users/student/raw/customers/customers_raw_20260605_v1.csv",
+    "clean": "s3://edu-ai-lake/users/student/clean/customers/customers_clean_20260606_v2.csv",
+    "run_info": "s3://edu-ai-lake/users/student/log/week2/run_info_20260606_student.json",
+    "upload_record": "s3://edu-ai-lake/users/student/log/week2/day4_s3_upload_record_student.json",
+    "artifact": "s3://edu-ai-lake/users/student/artifact/week2/"
+  },
+  "file_naming_rule": {
+    "pattern": "{dataset}_{stage}_{yyyymmdd}_v{version}.{ext}",
+    "examples": [
+      "customers_raw_20260605_v1.csv",
+      "customers_clean_20260606_v2.csv",
+      "customers_feature_20260607_v1.parquet",
+      "run_info_week2_day4_20260606_v1.json"
+    ]
+  },
+  "versioning_summary": {
+    "concept": "same S3 key can keep multiple versions when Versioning is enabled",
+    "versioning_is_safety_net": true,
+    "versioning_replaces_file_naming_rule": false,
+    "raw_overwrite_recommended": false,
+    "record_files": [
+      "outputs/day4_s3_versioning_versions_raw.json",
+      "outputs/day4_s3_versioning_version_ids.json",
+      "outputs/day4_s3_versioning_record.json",
+      "outputs/day4_s3_versioning_record.md"
+    ]
+  },
+  "lifecycle_summary": {
+    "concept": "retention policy for transition and expiration",
+    "raw_auto_expiration_recommended": false,
+    "tmp_expiration_candidate": true,
+    "record_files": [
+      "outputs/day4_s3_lifecycle_design.md",
+      "outputs/day4_s3_lifecycle_design.json",
+      "outputs/day4_s3_lifecycle_tmp_policy_example.json",
+      "outputs/day4_s3_lifecycle_record.md"
+    ]
+  },
+  "iam_summary": {
+    "principle": "least privilege",
+    "student_scope": "users/student/ only",
+    "raw_delete_allowed": false,
+    "log_delete_allowed": false,
+    "final_artifact_delete_allowed": false,
+    "student_can_change_versioning": false,
+    "student_can_change_lifecycle": false,
+    "record_files": [
+      "outputs/day4_s3_iam_operation_rules.md",
+      "outputs/day4_s3_iam_operation_rules.json",
+      "outputs/day4_s3_personal_permission_matrix.md"
+    ]
+  },
+  "local_artifacts": [
+    {
+      "name": "s3_data_lake_draft",
+      "path": "outputs/day4_s3_data_lake_draft.md",
+      "exists": true
+    },
+    {
+      "name": "s3_prefix_design_md",
+      "path": "outputs/day4_s3_prefix_design.md",
+      "exists": true
+    },
+    {
+      "name": "s3_prefix_design_json",
+      "path": "outputs/day4_s3_prefix_design.json",
+      "exists": true
+    },
+    {
+      "name": "s3_upload_record_json",
+      "path": "outputs/day4_s3_upload_record.json",
+      "exists": true
+    },
+    {
+      "name": "s3_upload_record_md",
+      "path": "outputs/day4_s3_upload_record.md",
+      "exists": true
+    },
+    {
+      "name": "s3_file_naming_rules",
+      "path": "outputs/day4_s3_file_naming_rules.md",
+      "exists": true
+    },
+    {
+      "name": "s3_data_loading_rules_md",
+      "path": "outputs/day4_s3_data_loading_rules.md",
+      "exists": true
+    },
+    {
+      "name": "s3_data_loading_rules_json",
+      "path": "outputs/day4_s3_data_loading_rules.json",
+      "exists": true
+    },
+    {
+      "name": "s3_versioning_versions_raw",
+      "path": "outputs/day4_s3_versioning_versions_raw.json",
+      "exists": true
+    },
+    {
+      "name": "s3_versioning_version_ids",
+      "path": "outputs/day4_s3_versioning_version_ids.json",
+      "exists": true
+    },
+    {
+      "name": "s3_versioning_record_json",
+      "path": "outputs/day4_s3_versioning_record.json",
+      "exists": true
+    },
+    {
+      "name": "s3_versioning_record_md",
+      "path": "outputs/day4_s3_versioning_record.md",
+      "exists": true
+    },
+    {
+      "name": "s3_lifecycle_design_md",
+      "path": "outputs/day4_s3_lifecycle_design.md",
+      "exists": true
+    },
+    {
+      "name": "s3_lifecycle_design_json",
+      "path": "outputs/day4_s3_lifecycle_design.json",
+      "exists": true
+    },
+    {
+      "name": "s3_lifecycle_policy_example",
+      "path": "outputs/day4_s3_lifecycle_tmp_policy_example.json",
+      "exists": true
+    },
+    {
+      "name": "s3_lifecycle_record_md",
+      "path": "outputs/day4_s3_lifecycle_record.md",
+      "exists": true
+    },
+    {
+      "name": "s3_iam_rules_md",
+      "path": "outputs/day4_s3_iam_operation_rules.md",
+      "exists": true
+    },
+    {
+      "name": "s3_iam_rules_json",
+      "path": "outputs/day4_s3_iam_operation_rules.json",
+      "exists": true
+    },
+    {
+      "name": "s3_permission_matrix",
+      "path": "outputs/day4_s3_personal_permission_matrix.md",
+      "exists": true
+    },
+    {
+      "name": "run_info",
+      "path": "outputs/run_info.json",
+      "exists": true
+    }
+  ],
+  "day5_ready": {
+    "s3_clean_data_uri": "s3://edu-ai-lake/users/student/clean/customers/customers_clean_20260606_v2.csv",
+    "ready_to_read_s3_clean_data": true,
+    "next_topic": "S3 clean data reading and baseline preparation"
+  },
+  "next_day": "week2_day5",
+  "next_day_topic": "S3 clean 데이터 읽기 + baseline 준비"
+}

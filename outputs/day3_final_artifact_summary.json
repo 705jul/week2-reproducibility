@@ -1,0 +1,105 @@
+{
+  "author": "student",
+  "day": "week2_day3",
+  "topic": "reproducibility_and_environment_separation",
+  "created_at": "2026-06-29T12:35:16.752875",
+  "execution_environment": "local_wsl2",
+  "local_pc_used": true,
+  "openshift_local_used": false,
+  "developer_sandbox_used": false,
+  "g4dn_used": false,
+  "h200_used": false,
+  "artifacts": [
+    {
+      "name": "day3_notebook",
+      "path": "notebooks/03_reproducibility_environment.ipynb",
+      "exists": true
+    },
+    {
+      "name": "requirements",
+      "path": "requirements.txt",
+      "exists": true
+    },
+    {
+      "name": "requirements_minimal",
+      "path": "requirements-minimal.txt",
+      "exists": false
+    },
+    {
+      "name": "env_example",
+      "path": ".env.example",
+      "exists": true
+    },
+    {
+      "name": "gitignore",
+      "path": ".gitignore",
+      "exists": true
+    },
+    {
+      "name": "readme",
+      "path": "README.md",
+      "exists": true
+    },
+    {
+      "name": "src_init",
+      "path": "src/__init__.py",
+      "exists": true
+    },
+    {
+      "name": "src_seed",
+      "path": "src/seed.py",
+      "exists": true
+    },
+    {
+      "name": "src_paths",
+      "path": "src/paths.py",
+      "exists": true
+    },
+    {
+      "name": "src_io_utils",
+      "path": "src/io_utils.py",
+      "exists": true
+    },
+    {
+      "name": "run_info",
+      "path": "outputs/run_info.json",
+      "exists": true
+    },
+    {
+      "name": "seed_split_result",
+      "path": "outputs/seed_split_result.json",
+      "exists": true
+    },
+    {
+      "name": "env_config_summary",
+      "path": "outputs/env_config_summary.json",
+      "exists": true
+    },
+    {
+      "name": "src_test_info",
+      "path": "outputs/src_test_info.json",
+      "exists": true
+    },
+    {
+      "name": "openshift_guide",
+      "path": "outputs/openshift_same_execution_guide.md",
+      "exists": false
+    }
+  ],
+  "reproducibility_elements": {
+    "venv": ".venv is created locally but not committed to Git",
+    "requirements": "requirements.txt is used to recreate Python package environment",
+    "env_example": ".env.example is shared as configuration template",
+    "env": ".env is personal and ignored by Git",
+    "seed": "SEED is recorded and used for random reproducibility",
+    "path": "pathlib.Path and project-relative paths are used",
+    "src": "reusable functions are separated into src/",
+    "run_info": "outputs/run_info.json stores execution conditions",
+    "readme": "README.md documents execution steps"
+  },
+  "openshift_same_execution_ready": true,
+  "openshift_same_execution_guide": "outputs/openshift_same_execution_guide.md",
+  "next_day": "week2_day4",
+  "next_day_topic": "S3 data upload, versioning, lifecycle, prefix management",
+  "note": "Day 3 8교시에서 개인 로컬 PC 기반 재현성 구조를 OpenShift Local/Developer Sandbox 동일 실행 구조로 정리함"
+}

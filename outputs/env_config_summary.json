@@ -1,0 +1,21 @@
+{
+  "author": "kim-juil",
+  "execution_environment": "local_wsl2",
+  "seed": 42,
+  "data_version": "20260606_v2",
+  "input_file": "/home/soldesk/week2-reproducibility/data/clean/customers_clean_20260606_v2.csv",
+  "input_file_exists": true,
+  "input_row_count": 9,
+  "input_column_count": 29,
+  "output_dir": "/home/soldesk/week2-reproducibility/outputs",
+  "env_file": "/home/soldesk/week2-reproducibility/.env",
+  "env_file_exists": true,
+  "env_example_file": "/home/soldesk/week2-reproducibility/.env.example",
+  "env_example_file_exists": true,
+  "g4dn_used": false,
+  "openshift_local_used": false,
+  "developer_sandbox_used": false,
+  "h200_used": false,
+  "note": "Day 3 6교시 .env와 환경 변수 기반 경로 설정 실습",
+  "created_at": "2026-06-29T11:07:32.377349"
+}

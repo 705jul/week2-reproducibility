@@ -1,0 +1,4 @@
+Lifecycle test file
+author=kim-juil
+created_at=2026-06-29T17:00:55+09:00
+purpose=tmp lifecycle test

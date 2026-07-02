@@ -1,0 +1,120 @@
+{
+  "day": "week2_day4",
+  "lesson": "period6_s3_lifecycle_design",
+  "author": "student",
+  "bucket": "edu-ai-lake",
+  "created_at": "2026-06-29T16:54:06.002865",
+  "environment": {
+    "local_pc_wsl2_used": true,
+    "openshift_local_used": false,
+    "developer_sandbox_used": false,
+    "g4dn_used": false,
+    "h200_used": false
+  },
+  "concepts": {
+    "lifecycle": "object transition or expiration rule",
+    "transition": "move objects to another storage class after a period",
+    "expiration": "expire objects after a period",
+    "noncurrent_version": "previous version retained by S3 Versioning",
+    "delete_marker": "marker that can be created when deleting in a versioned bucket"
+  },
+  "principles": {
+    "lifecycle_is_retention_policy": true,
+    "lifecycle_is_not_just_delete_tool": true,
+    "raw_auto_expiration_recommended": false,
+    "tmp_expiration_candidate": true,
+    "versioning_and_lifecycle_should_be_designed_together": true
+  },
+  "prefix_policies": {
+    "raw": {
+      "prefix": "users/student/raw/customers/",
+      "meaning": "original data",
+      "retention": "long_term",
+      "transition": "review_after_long_period",
+      "expiration": "do_not_auto_expire",
+      "delete_requires_approval": true,
+      "reason": "raw is the reproducibility source"
+    },
+    "clean": {
+      "prefix": "users/student/clean/customers/",
+      "meaning": "processed data",
+      "retention": "mid_to_long_term",
+      "transition": "review_after_analysis_period",
+      "expiration": "review_only_if_reproducible",
+      "delete_requires_approval": true,
+      "reason": "clean is used for analysis and Day 5 baseline preparation"
+    },
+    "feature": {
+      "prefix": "users/student/feature/customers/",
+      "meaning": "model input features",
+      "retention": "short_to_mid_term",
+      "transition": "review_after_model_link_check",
+      "expiration": "possible_if_reproducible",
+      "delete_requires_approval": true,
+      "reason": "feature may be reproducible but can be linked to model versions"
+    },
+    "notebook": {
+      "prefix": "users/student/notebook/week2/",
+      "meaning": "notebook backup",
+      "retention": "course_period",
+      "transition": "review_after_course",
+      "expiration": "depends_on_training_policy",
+      "delete_requires_approval": false,
+      "reason": "notebooks explain experiment process"
+    },
+    "artifact": {
+      "prefix": "users/student/artifact/week2/",
+      "meaning": "reports and submitted outputs",
+      "retention": "evaluation_period",
+      "transition": "review_after_evaluation",
+      "expiration": "do_not_auto_expire_final_outputs",
+      "delete_requires_approval": true,
+      "reason": "artifacts can be evaluation evidence"
+    },
+    "log": {
+      "prefix": "users/student/log/week2/",
+      "meaning": "execution and upload records",
+      "retention": "trace_period",
+      "transition": "review_for_archive_after_trace_period",
+      "expiration": "be_careful",
+      "delete_requires_approval": true,
+      "reason": "logs are needed for troubleshooting and traceability"
+    },
+    "archive": {
+      "prefix": "users/student/archive/",
+      "meaning": "long-term preserved data",
+      "retention": "long_term",
+      "transition": "long_term_storage_review",
+      "expiration": "approval_required",
+      "delete_requires_approval": true,
+      "reason": "archive is not a trash folder"
+    },
+    "tmp": {
+      "prefix": "users/student/tmp/",
+      "meaning": "temporary files",
+      "retention": "short_term",
+      "transition": "not_required",
+      "expiration": "7_to_30_days_candidate",
+      "delete_requires_approval": false,
+      "reason": "temporary files should not accumulate"
+    },
+    "versioning_test": {
+      "prefix": "users/student/clean/customers/versioning-test/",
+      "meaning": "versioning practice objects",
+      "retention": "short_term",
+      "transition": "not_required",
+      "expiration": "14_to_30_days_candidate",
+      "delete_requires_approval": false,
+      "reason": "test objects are not production data"
+    }
+  },
+  "safe_apply_scope": {
+    "apply_to_raw": false,
+    "apply_to_clean": false,
+    "apply_to_artifact": false,
+    "apply_to_log": false,
+    "apply_to_tmp_only_if_instructor_allows": true,
+    "safe_test_prefix": "users/student/tmp/lifecycle-test/"
+  },
+  "next_lesson": "IAM least privilege and personal operation rules"
+}

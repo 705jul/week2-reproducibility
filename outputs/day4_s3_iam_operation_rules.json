@@ -1,0 +1,172 @@
+{
+  "day": "week2_day4",
+  "lesson": "period7_iam_least_privilege_and_personal_operation_rules",
+  "author": "student",
+  "bucket": "edu-ai-lake",
+  "region": "ap-northeast-2",
+  "created_at": "2026-06-29T17:43:32.765757",
+  "environment": {
+    "local_pc_wsl2_used": true,
+    "openshift_local_used": false,
+    "developer_sandbox_used": false,
+    "g4dn_used": false,
+    "h200_used": false
+  },
+  "least_privilege_principle": {
+    "summary": "grant only required actions on required prefixes",
+    "do_not_grant_s3_full_access_to_students": true,
+    "do_not_grant_admin_access_to_students": true
+  },
+  "user_prefix": "users/student/",
+  "prefixes": {
+    "raw": "users/student/raw/customers/",
+    "clean": "users/student/clean/customers/",
+    "feature": "users/student/feature/customers/",
+    "notebook": "users/student/notebook/week2/",
+    "artifact": "users/student/artifact/week2/",
+    "log": "users/student/log/week2/",
+    "archive": "users/student/archive/",
+    "tmp": "users/student/tmp/"
+  },
+  "role_design": {
+    "student_personal": {
+      "name_example": "ai-student-personal-s3-user",
+      "allowed": [
+        "List own prefix",
+        "GetObject on own prefixes",
+        "PutObject on own clean, feature, notebook, artifact, log prefixes",
+        "DeleteObject only on own tmp prefix"
+      ],
+      "denied_or_not_allowed": [
+        "Delete raw",
+        "Delete log",
+        "Delete final artifact",
+        "Write other user prefix",
+        "PutBucketVersioning",
+        "PutLifecycleConfiguration",
+        "PutBucketPolicy",
+        "DeleteBucket"
+      ]
+    },
+    "instructor_admin": {
+      "name_example": "ai-instructor-s3-admin",
+      "allowed": [
+        "Review student artifacts",
+        "Manage educational bucket structure",
+        "Review Versioning and Lifecycle settings",
+        "Approve recovery or deletion if needed"
+      ],
+      "caution": [
+        "Use approval and audit for destructive actions"
+      ]
+    },
+    "pipeline": {
+      "name_example": "ai-pipeline-role",
+      "allowed": [
+        "Read required input prefixes",
+        "Write feature, artifact, and log prefixes",
+        "Write execution logs"
+      ],
+      "denied_or_not_allowed": [
+        "Delete raw",
+        "Change bucket lifecycle",
+        "Change bucket versioning"
+      ]
+    },
+    "auditor": {
+      "name_example": "ai-auditor-readonly",
+      "allowed": [
+        "Read logs",
+        "Review CloudTrail events",
+        "List relevant prefixes"
+      ],
+      "denied_or_not_allowed": [
+        "PutObject",
+        "DeleteObject",
+        "Change IAM or S3 bucket settings"
+      ]
+    }
+  },
+  "prefix_permission_matrix": {
+    "raw": {
+      "get": true,
+      "put": "limited",
+      "delete": false,
+      "reason": "raw is original reproducibility source"
+    },
+    "clean": {
+      "get": true,
+      "put": true,
+      "delete": "restricted",
+      "reason": "clean is processed data and Day 5 input"
+    },
+    "feature": {
+      "get": true,
+      "put": true,
+      "delete": "restricted",
+      "reason": "feature may be linked to model versions"
+    },
+    "log": {
+      "get": true,
+      "put": true,
+      "delete": false,
+      "reason": "logs are traceability records"
+    },
+    "artifact": {
+      "get": true,
+      "put": true,
+      "delete": "restricted",
+      "reason": "artifacts can be evaluation evidence"
+    },
+    "tmp": {
+      "get": true,
+      "put": true,
+      "delete": true,
+      "reason": "temporary personal files"
+    }
+  },
+  "dangerous_actions_for_students": [
+    "s3:DeleteObject on raw/log/final artifact",
+    "s3:DeleteObjectVersion",
+    "s3:PutBucketVersioning",
+    "s3:PutLifecycleConfiguration",
+    "s3:PutBucketPolicy",
+    "s3:DeleteBucket",
+    "s3:PutObject to another user's prefix"
+  ],
+  "accident_prevention": {
+    "raw_delete": "deny or restrict raw DeleteObject",
+    "wrong_prefix_upload": "limit PutObject to users/<author>/ only",
+    "log_delete": "deny or restrict log DeleteObject",
+    "artifact_delete": "restrict final artifact deletion",
+    "lifecycle_misconfiguration": "students should not have PutLifecycleConfiguration",
+    "access_key_leak": "do not store credentials in code, README, notebook, or Git"
+  },
+  "openshift_connection": {
+    "use_configmap_for": [
+      "S3_BUCKET",
+      "S3_USER_PREFIX",
+      "S3_CLEAN_PREFIX",
+      "S3_LOG_PREFIX"
+    ],
+    "use_secret_for": [
+      "AWS credentials if needed"
+    ],
+    "principle": "OpenShift workloads should have only required S3 prefix permissions"
+  },
+  "g4dn_connection": {
+    "used_in_day4": false,
+    "recommended_auth": "EC2 IAM Role instead of storing access keys",
+    "needed_permissions_future": [
+      "GetObject on clean data",
+      "PutObject on artifact/week7",
+      "PutObject on log/week7"
+    ],
+    "not_needed": [
+      "raw DeleteObject",
+      "PutBucketVersioning",
+      "PutLifecycleConfiguration"
+    ]
+  },
+  "next_lesson": "Day 4 final artifact summary and Day 5 preview"
+}

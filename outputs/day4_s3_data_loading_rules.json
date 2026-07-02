@@ -1,0 +1,76 @@
+{
+  "day": "week2_day4",
+  "lesson": "period4_file_naming_and_data_loading_rules",
+  "author": "kim-juil",
+  "bucket": "edu-ai-lake",
+  "created_at": "2026-06-29T15:40:18.587112",
+  "file_naming_pattern": "{dataset}_{stage}_{yyyymmdd}_v{version}.{ext}",
+  "bad_filename_examples": [
+    "customers.csv",
+    "customers_new.csv",
+    "customers_final.csv",
+    "customers_final2.csv",
+    "customers_real_final.csv",
+    "new.csv",
+    "final.csv",
+    "result.csv",
+    "data.csv"
+  ],
+  "good_filename_examples": [
+    "customers_raw_20260605_v1.csv",
+    "customers_clean_20260606_v2.csv",
+    "customers_feature_20260607_v1.parquet",
+    "run_info_week2_day4_20260606_v1.json",
+    "day4_s3_upload_record_20260606_v1.md"
+  ],
+  "prefixes": {
+    "raw": "users/kim-juil/raw/customers/",
+    "clean": "users/kim-juil/clean/customers/",
+    "feature": "users/kim-juil/feature/customers/",
+    "notebook": "users/kim-juil/notebook/week2/",
+    "artifact": "users/kim-juil/artifact/week2/",
+    "log": "users/kim-juil/log/week2/",
+    "archive": "users/kim-juil/archive/"
+  },
+  "rules": {
+    "raw": {
+      "description": "original data",
+      "overwrite_allowed": false,
+      "delete_allowed_by_student": false,
+      "filename_example": "customers_raw_20260605_v1.csv"
+    },
+    "clean": {
+      "description": "processed data",
+      "must_include_processing_record": true,
+      "must_include_date_and_version": true,
+      "filename_example": "customers_clean_20260606_v2.csv"
+    },
+    "feature": {
+      "description": "model input features",
+      "must_record_split_rule": true,
+      "must_check_leakage": true,
+      "filename_example": "customers_feature_20260607_v1.parquet"
+    },
+    "log": {
+      "description": "execution and upload records",
+      "delete_allowed_by_student": false,
+      "filename_examples": [
+        "run_info_week2_day4_20260606_v1.json",
+        "day4_s3_upload_record_20260606_v1.json"
+      ]
+    },
+    "artifact": {
+      "description": "reports and submitted outputs",
+      "final_artifact_delete_allowed": false,
+      "filename_example": "day4_s3_data_loading_rules_20260606_v1.md"
+    }
+  },
+  "environment_connection": {
+    "local_pc_wsl2": true,
+    "openshift_local_same_rules": true,
+    "developer_sandbox_same_rules": true,
+    "g4dn_used_in_day4": false,
+    "g4dn_future_rules": "store GPU outputs under artifact/week7 and logs under log/week7"
+  },
+  "next_lesson": "S3 Versioning concept and overwrite test"
+}

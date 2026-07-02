@@ -1,0 +1,27 @@
+{
+  "Rules": [
+    {
+      "ID": "expire-student-tmp-lifecycle-test-after-7-days",
+      "Status": "Disabled",
+      "Filter": {
+        "Prefix": "users/student/tmp/lifecycle-test/"
+      },
+      "Expiration": {
+        "Days": 7
+      },
+      "AbortIncompleteMultipartUpload": {
+        "DaysAfterInitiation": 7
+      }
+    },
+    {
+      "ID": "expire-student-versioning-test-noncurrent-after-30-days",
+      "Status": "Disabled",
+      "Filter": {
+        "Prefix": "users/student/clean/customers/versioning-test/"
+      },
+      "NoncurrentVersionExpiration": {
+        "NoncurrentDays": 30
+      }
+    }
+  ]
+}

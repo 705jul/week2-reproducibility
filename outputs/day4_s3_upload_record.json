@@ -1,0 +1,50 @@
+{
+  "day": "week2_day4",
+  "lesson": "period3_raw_clean_s3_upload",
+  "author": "student",
+  "bucket": "edu-ai-lake",
+  "created_at": "2026-06-29T15:02:16.863249",
+  "environment": {
+    "local_pc_wsl2_used": true,
+    "openshift_local_used": false,
+    "developer_sandbox_used": false,
+    "g4dn_used": false,
+    "h200_used": false
+  },
+  "uploaded_objects": {
+    "raw": {
+      "local_file": "data/raw/customers_raw.csv",
+      "s3_uri": "s3://edu-ai-lake/users/student/raw/customers/customers_raw_20260605_v1.csv",
+      "data_state": "raw",
+      "principle": "original data, do not overwrite casually"
+    },
+    "clean": {
+      "local_file": "data/clean/customers_clean_20260606_v2.csv",
+      "s3_uri": "s3://edu-ai-lake/users/student/clean/customers/customers_clean_20260606_v2.csv",
+      "data_state": "clean",
+      "principle": "processed data with date and version"
+    },
+    "log": {
+      "local_file": "outputs/run_info.json",
+      "s3_uri": "s3://edu-ai-lake/users/student/log/week2/run_info_20260606_student.json",
+      "data_state": "log",
+      "principle": "execution condition record"
+    },
+    "artifact": {
+      "local_file": "reports/week2/day3_reproducibility_final_report.md",
+      "s3_uri": "s3://edu-ai-lake/users/student/artifact/week2/day3_reproducibility_final_report_student.md",
+      "data_state": "artifact",
+      "principle": "report or output artifact"
+    }
+  },
+  "upload_rules": {
+    "raw_prefix": "users/student/raw/customers/",
+    "clean_prefix": "users/student/clean/customers/",
+    "log_prefix": "users/student/log/week2/",
+    "artifact_prefix": "users/student/artifact/week2/",
+    "do_not_mix_raw_and_clean": true,
+    "raw_overwrite_allowed": false,
+    "clean_filename_should_include_date_and_version": true
+  },
+  "next_lesson": "file naming rule and data loading rule documentation"
+}

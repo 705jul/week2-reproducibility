@@ -1,0 +1,10 @@
+customer_id,age,monthly_fee,usage_days,support_calls,gender_standard,contract_type_standard,signup_date,last_login_date,signup_year,signup_month,last_login_dayofweek,last_login_day_name,days_since_signup,days_since_last_login,age_was_missing,monthly_fee_was_missing,gender_was_missing,contract_type_was_missing,monthly_fee_outlier,support_calls_outlier,is_high_fee,is_short_user,has_many_support_calls,usage_group,is_long_contract,churn,gender,contract_type,versioning_test_marker,versioning_test_created_at
+C001,34,59000,120,1,female,monthly,2025-01-10,2026-06-01,2025,1,0,Monday,511,4,0,0,0,0,0,0,1,0,0,middle,0,0,female,month-to-month,v1_first_upload,2026-06-29T15:54:46.330334
+C002,45,79000,380,3,male,one_year,2024-12-01,2026-05-10,2024,12,6,Sunday,551,26,0,0,0,0,0,0,1,0,1,long,1,1,male,1-year,v1_first_upload,2026-06-29T15:54:46.330334
+C003,41,72000,45,0,female,monthly,2026-04-20,2026-06-03,2026,4,2,Wednesday,46,2,1,1,0,0,0,0,1,0,0,middle,0,0,female,month-to-month,v1_first_upload,2026-06-29T15:54:46.330334
+C004,52,99000,800,5,male,one_year,2023-05-15,2026-03-01,2023,5,6,Sunday,1117,96,0,0,0,0,0,0,1,0,1,long,1,1,male,1-year,v1_first_upload,2026-06-29T15:54:46.330334
+C005,41,69000,220,2,female,unknown,2025-08-03,2026-05-30,2025,8,5,Saturday,306,6,0,0,0,1,0,0,1,0,0,middle,0,0,female,unknown,v1_first_upload,2026-06-29T15:54:46.330334
+C006,37,72000,90,4,male,monthly,2025-03-18,2026-04-15,2025,3,2,Wednesday,444,51,0,0,0,0,0,0,1,0,1,middle,0,0,male,month-to-month,v1_first_upload,2026-06-29T15:54:46.330334
+C007,58,110000,1000,6,female,one_year,2022-11-30,2026-01-20,2022,11,1,Tuesday,1283,136,0,0,0,0,0,0,1,0,1,long,1,1,female,1-year,v1_first_upload,2026-06-29T15:54:46.330334
+C008,23,45000,15,0,unknown,monthly,2026-05-10,2026-06-04,2026,5,3,Thursday,26,1,0,0,1,0,0,0,0,1,0,short,0,0,unknown,month-to-month,v1_first_upload,2026-06-29T15:54:46.330334
+C009,63,120000,1100,7,male,one_year,2021-09-25,2025-12-31,2021,9,2,Wednesday,1714,156,0,0,0,0,0,0,1,0,1,long,1,1,male,1-year,v1_first_upload,2026-06-29T15:54:46.330334

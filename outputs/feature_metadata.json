@@ -1,0 +1,144 @@
+{
+  "day": "week2_day5",
+  "lesson": "period4_feature_generation_and_storage",
+  "author": "kim-juil",
+  "created_at": "2026-07-02T16:03:20.545243",
+  "execution_environment": {
+    "main": "local_pc_wsl2",
+    "openshift_local_used": false,
+    "openshift_local_connection": "same project structure and src/preprocess.py can be reused",
+    "developer_sandbox_connection": "same environment variables and S3 prefixes can be reused",
+    "g4dn_used": false,
+    "g4dn_not_used_reason": "feature generation uses pandas and does not require GPU"
+  },
+  "input": {
+    "clean_file": "data/clean/customers_clean_20260606_v2.csv",
+    "clean_file_absolute": "/home/soldesk/week2-reproducibility/data/clean/customers_clean_20260606_v2.csv",
+    "s3_source_bucket": "edu-ai-lake",
+    "s3_source_key": "",
+    "s3_source_uri": "s3://edu-ai-lake/"
+  },
+  "output": {
+    "feature_csv": "data/feature/customers_feature_20260607_v1.csv",
+    "feature_parquet": "data/feature/customers_feature_20260607_v1.parquet",
+    "s3_feature_prefix": "users/kim-juil/feature/customers/",
+    "planned_s3_csv_uri": "s3://edu-ai-lake/users/kim-juil/feature/customers/customers_feature_20260607_v1.csv",
+    "planned_s3_parquet_uri": "s3://edu-ai-lake/users/kim-juil/feature/customers/customers_feature_20260607_v1.parquet"
+  },
+  "feature_generation": {
+    "source_dataframe_shape": [
+      9,
+      29
+    ],
+    "feature_dataframe_shape": [
+      9,
+      32
+    ],
+    "created_columns": [
+      "fee_per_usage_day",
+      "long_usage_flag",
+      "support_call_flag"
+    ],
+    "created_feature_definitions": {
+      "fee_per_usage_day": "monthly_fee divided by usage_days; zero usage_days is handled safely",
+      "support_call_flag": "1 if support_calls > 0 else 0",
+      "long_usage_flag": "1 if usage_days >= 180 else 0"
+    },
+    "safety_checks": {
+      "fee_per_usage_day_missing_count": 0,
+      "fee_per_usage_day_inf_count": 0,
+      "support_call_flag_unique": [
+        0,
+        1
+      ],
+      "long_usage_flag_unique": [
+        0,
+        1
+      ]
+    }
+  },
+  "column_roles": {
+    "target_col": "churn",
+    "drop_cols": [
+      "churn",
+      "customer_id"
+    ],
+    "feature_cols": [
+      "age",
+      "monthly_fee",
+      "usage_days",
+      "support_calls",
+      "gender_standard",
+      "contract_type_standard",
+      "signup_date",
+      "last_login_date",
+      "signup_year",
+      "signup_month",
+      "last_login_dayofweek",
+      "last_login_day_name",
+      "days_since_signup",
+      "days_since_last_login",
+      "age_was_missing",
+      "monthly_fee_was_missing",
+      "gender_was_missing",
+      "contract_type_was_missing",
+      "monthly_fee_outlier",
+      "support_calls_outlier",
+      "is_high_fee",
+      "is_short_user",
+      "has_many_support_calls",
+      "usage_group",
+      "is_long_contract",
+      "gender",
+      "contract_type",
+      "fee_per_usage_day",
+      "support_call_flag",
+      "long_usage_flag"
+    ],
+    "categorical_cols": [
+      "gender",
+      "gender_standard",
+      "contract_type",
+      "contract_type_standard",
+      "usage_group"
+    ],
+    "numeric_cols": [
+      "age",
+      "monthly_fee",
+      "usage_days",
+      "support_calls",
+      "signup_date",
+      "last_login_date",
+      "signup_year",
+      "signup_month",
+      "last_login_dayofweek",
+      "last_login_day_name",
+      "days_since_signup",
+      "days_since_last_login",
+      "age_was_missing",
+      "monthly_fee_was_missing",
+      "gender_was_missing",
+      "contract_type_was_missing",
+      "monthly_fee_outlier",
+      "support_calls_outlier",
+      "is_high_fee",
+      "is_short_user",
+      "has_many_support_calls",
+      "is_long_contract",
+      "fee_per_usage_day",
+      "support_call_flag",
+      "long_usage_flag"
+    ]
+  },
+  "leakage_policy": {
+    "target_is_not_feature": true,
+    "customer_id_excluded": true,
+    "possible_leakage_columns_excluded": [],
+    "test_data_not_used_in_period4": true
+  },
+  "file_format": {
+    "csv": "human-readable and easy to inspect",
+    "parquet": "efficient for analysis pipeline and model input"
+  },
+  "next_lesson": "train validation test split and leakage check"
+}

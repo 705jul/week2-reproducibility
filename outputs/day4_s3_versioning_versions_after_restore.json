@@ -1,0 +1,54 @@
+{
+    "Versions": [
+        {
+            "ETag": "\"4eb5a8da5f99d0c25d1266581e857591\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 2032,
+            "StorageClass": "STANDARD",
+            "Key": "users/kim-juil/clean/customers/versioning-test/customers_clean_versioning_test_same_key.csv",
+            "VersionId": "0zWzDbUB78RqVHOgn_MyNzgI1IXdXkqT",
+            "IsLatest": true,
+            "LastModified": "2026-06-29T07:16:20+00:00",
+            "Owner": {
+                "ID": "31c714076ee359a67d0dd8e56d8d1b92af07455acb723f8f7cebc8fc55daa3cc"
+            }
+        },
+        {
+            "ETag": "\"93a2f3a2e30ce95ce33fb297dc8d2125\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 2041,
+            "StorageClass": "STANDARD",
+            "Key": "users/kim-juil/clean/customers/versioning-test/customers_clean_versioning_test_same_key.csv",
+            "VersionId": "3iXQrUi9ABymAGpru_o.ge.sU.Ds5.7c",
+            "IsLatest": false,
+            "LastModified": "2026-06-29T06:59:11+00:00",
+            "Owner": {
+                "ID": "31c714076ee359a67d0dd8e56d8d1b92af07455acb723f8f7cebc8fc55daa3cc"
+            }
+        },
+        {
+            "ETag": "\"4eb5a8da5f99d0c25d1266581e857591\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 2032,
+            "StorageClass": "STANDARD",
+            "Key": "users/kim-juil/clean/customers/versioning-test/customers_clean_versioning_test_same_key.csv",
+            "VersionId": "LZhs08WF7SryWWKS3liDFWUtBgOne8ew",
+            "IsLatest": false,
+            "LastModified": "2026-06-29T06:58:40+00:00",
+            "Owner": {
+                "ID": "31c714076ee359a67d0dd8e56d8d1b92af07455acb723f8f7cebc8fc55daa3cc"
+            }
+        }
+    ],
+    "RequestCharged": null,
+    "Prefix": "users/kim-juil/clean/customers/versioning-test/customers_clean_versioning_test_same_key.csv"
+}

@@ -43,5 +43,78 @@
   "split_note": "stratify=y 적용",
   "split_result_file": "/home/soldesk/week2-reproducibility/outputs/seed_split_result.json",
   "period5_seed_note": "random.seed, np.random.seed, train_test_split random_state 기준 기록",
-  "updated_at_period5": "2026-06-29T10:45:23.165142"
+  "updated_at_period5": "2026-06-29T10:45:23.165142",
+  "period6_env_config": {
+    "updated_at": "2026-06-29T11:07:57.181828",
+    "author": "kim-juil",
+    "execution_environment": "local_wsl2",
+    "seed_from_env": 42,
+    "data_version": "20260606_v2",
+    "input_file_from_env": "/home/soldesk/week2-reproducibility/data/clean/customers_clean_20260606_v2.csv",
+    "input_file_exists": true,
+    "output_dir_from_env": "/home/soldesk/week2-reproducibility/outputs",
+    "env_file_exists": true,
+    "env_example_file_exists": true,
+    "env_config_summary_file": "/home/soldesk/week2-reproducibility/outputs/env_config_summary.json",
+    "path_strategy": "pathlib.Path + project-relative paths",
+    "config_strategy": ".env + os.getenv + python-dotenv",
+    "git_env_policy": ".env is ignored, .env.example is shared",
+    "note": "6교시에서 경로 하드코딩을 제거하고 .env 기반 설정 구조를 기록함"
+  },
+  "period7_src_split": {
+    "updated_at": "2026-06-29T12:02:29.039018",
+    "src_used": true,
+    "src_modules": [
+      "src.seed",
+      "src.paths",
+      "src.io_utils"
+    ],
+    "created_files": [
+      "src/__init__.py",
+      "src/seed.py",
+      "src/paths.py",
+      "src/io_utils.py"
+    ],
+    "seed_function": "set_seed",
+    "path_functions": [
+      "get_project_root",
+      "get_project_dirs"
+    ],
+    "io_functions": [
+      "read_csv",
+      "save_csv",
+      "read_json",
+      "save_json"
+    ],
+    "clean_file": "/home/soldesk/week2-reproducibility/data/clean/customers_clean_20260606_v2.csv",
+    "clean_file_exists": true,
+    "read_test_shape": [
+      9,
+      29
+    ],
+    "save_test_file": "/home/soldesk/week2-reproducibility/outputs/src_io_test_customers_clean.csv",
+    "save_test_file_exists": true,
+    "notebook_role": "experiment_and_record",
+    "src_role": "reusable_python_code",
+    "script_ready": true,
+    "openshift_local_used": false,
+    "developer_sandbox_used": false,
+    "g4dn_used": false,
+    "h200_used": false,
+    "note": "7교시에서 Notebook 반복 코드를 src 모듈로 분리하고 import 테스트를 수행함"
+  },
+  "period8_final_summary": {
+    "updated_at": "2026-06-29T12:36:59",
+    "day3_final_artifact_summary_file": "outputs/day3_final_artifact_summary.json",
+    "openshift_same_execution_guide": "outputs/openshift_same_execution_guide.md",
+    "local_pc_execution_ready": true,
+    "openshift_same_execution_ready": true,
+    "developer_sandbox_same_execution_ready": true,
+    "g4dn_used": false,
+    "g4dn_note": "Day 3에서는 GPU가 필요 없으므로 g4dn.xlarge를 사용하지 않음. GPU 주차에서 같은 repo 구조를 사용 가능.",
+    "day3_completed": true,
+    "next_day": "week2_day4",
+    "next_day_topic": "S3 data upload, versioning, lifecycle, prefix management",
+    "note": "8교시에서 Day 3 산출물과 OpenShift 동일 실행 구조를 최종 정리함"
+  }
 }
